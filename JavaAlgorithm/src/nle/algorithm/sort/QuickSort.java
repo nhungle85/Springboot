@@ -1,9 +1,10 @@
-package nle.sort.example;
+package nle.algorithm.sort;
 
 public class QuickSort {
 
 	public static void main(String[] args) {
-		System.out.println("Git so cool");
+		System.out.println("Quick sort");
+
 	}
 
 }
