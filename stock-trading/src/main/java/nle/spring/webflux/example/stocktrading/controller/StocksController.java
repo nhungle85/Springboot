@@ -1,11 +1,14 @@
 package nle.spring.webflux.example.stocktrading.controller;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import nle.spring.webflux.example.stocktrading.dto.StockRequest;
@@ -29,6 +32,11 @@ public class StocksController {
 	@GetMapping
 	public Flux<StockResponse> getAllStocks() {
 		return stocksService.getAllStocks();
+	}
+	
+	@GetMapping("/priceGreaterThan/{priceGreaterThan}")
+	public Flux<StockResponse> getStocksWithParam(@RequestParam(required = false, defaultValue = "0") BigDecimal priceGreaterThan) {
+		return stocksService.getStocksWithParam(priceGreaterThan);
 	}
 
 	@PostMapping
