@@ -1,0 +1,4 @@
+1. Create Spring Boot Project
+https://start.spring.io/
+
+2. Run project
